@@ -5,10 +5,10 @@ const corsServer = corsProxy.createServer({
 corsServer.listen(3000, "localhost", function() {
 	console.log(`Cors Anywhere service started.`);
 });
-
-var UserName = "V12-Alpha"
+var Waited = false
+var UserName = "V12-Beta"
 var UserCount = 100;
-var PinCode = 5609824;
+var PinCode = 5529616;
 
 const { Session, Adapters, Events } = require('kahoot-api')
   
@@ -25,7 +25,7 @@ function AddBot(Pin, Username, CurrentI) {
                         player.on('player', msg => {
                             // console.log(msg)
                             if(msg.data.id == 2) {
-                                if (_G.Waited) {
+                                if (Waited) {
                                     var AnswerNumber = Math.floor(Math.random() * Math.floor(4))
                                     console.log("Answering With: " + AnswerNumber)
                                     player.answer(AnswerNumber);
@@ -34,12 +34,12 @@ function AddBot(Pin, Username, CurrentI) {
                                         var AnswerNumber = Math.floor(Math.random() * Math.floor(4))
                                         console.log("Answering With: " + AnswerNumber)
                                         player.answer(AnswerNumber);
-                                        _G.Waited = true
+                                        Waited = true
                                     }, 300);
                                 }
                             }
                             if (msg.data.id == 8) {
-                                _G.Waited = false
+                                Waited = false
                             }
                         }); 
                     });
