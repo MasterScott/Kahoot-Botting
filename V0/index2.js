@@ -5,10 +5,10 @@ const corsServer = corsProxy.createServer({
 corsServer.listen(3000, "localhost", function() {
 	console.log(`Cors Anywhere service started.`);
 });
-var Waited = false
-var UserName = "V12-Beta"
-var UserCount = 100;
-var PinCode = 5529616;
+var Waited = false;
+var UserName = "V1.81-Beta";
+var UserCount = 1500;
+var PinCode = 9887247;
 
 const { Session, Adapters, Events } = require('kahoot-api')
   
@@ -18,26 +18,29 @@ function AddBot(Pin, Username, CurrentI) {
         session.openSocket()
             .then(socket => {
                 const player = new Adapters.Player(socket);
-                // console.log('Attempting join with: ' + Username);
                 player.join(Username)
                     .then(() => {
                         console.log('Joined with: ' + Username);
                         player.on('player', msg => {
                             // console.log(msg)
+                            // Question Asked
                             if(msg.data.id == 2) {
                                 if (Waited) {
+                                    // The Players have already waited 250 MS, Let them all run
                                     var AnswerNumber = Math.floor(Math.random() * Math.floor(4))
                                     console.log("Answering With: " + AnswerNumber)
                                     player.answer(AnswerNumber);
                                 } else {
+                                    // The Players have not waited 250 MS, force one to wait
                                     setTimeout(function() {
                                         var AnswerNumber = Math.floor(Math.random() * Math.floor(4))
                                         console.log("Answering With: " + AnswerNumber)
                                         player.answer(AnswerNumber);
                                         Waited = true
-                                    }, 300);
+                                    }, 250);
                                 }
                             }
+                            // Question Finished
                             if (msg.data.id == 8) {
                                 Waited = false
                             }
