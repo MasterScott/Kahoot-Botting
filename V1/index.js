@@ -4,19 +4,19 @@ const RandomNames = require('random-name')
 const { Session, Adapters, Events } = require('kahoot-api')
 
 // Client Variables
-var UserCount = 5000;
+var UserCount = 100;
 var PinCode = 8238318;
 
 // Create the Cors Server
 const corsServer = corsProxy.createServer({
-	originWhitelist: []
+    originWhitelist: []
 });
 corsServer.listen(3000, "localhost", function() {
-	console.log(`Cors Anywhere service started.`);
+    console.log(`Cors Anywhere service started.`);
 });
 var Waited = false;
 
-  
+
 function AddBot(Pin, Username, CurrentI) {
     setTimeout(async function() {
         var session = new Session(Pin, "http://localhost:3000/")
@@ -29,7 +29,7 @@ function AddBot(Pin, Username, CurrentI) {
                         player.on('player', msg => {
                             // console.log(msg)
                             // Question Asked
-                            if(msg.data.id == 2) {
+                            if (msg.data.id == 2) {
                                 if (Waited) {
                                     // The Players have already waited 250 MS, Let them all run
                                     var AnswerNumber = Math.floor(Math.random() * Math.floor(4))
@@ -49,10 +49,10 @@ function AddBot(Pin, Username, CurrentI) {
                             if (msg.data.id == 8) {
                                 Waited = false
                             }
-							if (msg.data.id == 10) {
-								console.log(Username + " Has been kicked from the game")
-							}
-                        }); 
+                            if (msg.data.id == 10) {
+                                console.log(Username + " Has been kicked from the game")
+                            }
+                        });
                     });
             });
     }, 50 * CurrentI);
