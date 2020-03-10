@@ -5,7 +5,7 @@ const { Session, Adapters, Events } = require('kahoot-api')
 
 // Client Variables
 var UserCount = 5000;
-var PinCode = 7685633;
+var PinCode = 8238318;
 
 // Create the Cors Server
 const corsServer = corsProxy.createServer({
@@ -42,7 +42,7 @@ function AddBot(Pin, Username, CurrentI) {
                                         console.log("Answering With: " + AnswerNumber)
                                         player.answer(AnswerNumber);
                                         Waited = true
-                                    }, 250);
+                                    }, 550);
                                 }
                             }
                             // Question Finished
@@ -50,7 +50,7 @@ function AddBot(Pin, Username, CurrentI) {
                                 Waited = false
                             }
 							if (msg.data.id == 10) {
-								console.log(Username + " Has been kicked fromt the game")
+								console.log(Username + " Has been kicked from the game")
 							}
                         }); 
                     });
