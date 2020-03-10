@@ -49,6 +49,9 @@ function AddBot(Pin, Username, CurrentI) {
                             if (msg.data.id == 8) {
                                 Waited = false
                             }
+							if (msg.data.id == 10) {
+								console.log(Username + " Has been kicked fromt the game")
+							}
                         }); 
                     });
             });
