@@ -4,8 +4,8 @@ const RandomNames = require('random-name')
 const { Session, Adapters, Events } = require('kahoot-api')
 
 // Client Variables
-var UserCount = 100;
-var PinCode = 8238318;
+var UserCount = 2000;
+var PinCode = 9719736;
 
 // Create the Cors Server
 const corsServer = corsProxy.createServer({
@@ -59,5 +59,31 @@ function AddBot(Pin, Username, CurrentI) {
 }
 
 for (i = 0; i < UserCount; i++) {
-    AddBot(PinCode, RandomNames.first() + RandomNames.last(), i)
+	var Name = RandomNames.first() + RandomNames.last()
+	if (Name.length > 15) {
+		Name = Name.slice(0,15)
+	}
+	var TotalUpperCase = 0
+	for (f = 0; f < Name.length; f++) {
+		if (Name[f].toUpperCase() == Name[f]) {
+			TotalUpperCase = TotalUpperCase+1
+		}
+	}
+	if (TotalUpperCase > 2) {
+		var Name = RandomNames.first() + RandomNames.last()
+		if (Name.length > 15) {
+				Name.slice(0,15)
+		}
+		var TotalUpperCase = 0
+		for (f = 0; f < Name.length; f++) {
+			if (Name[f].toUpperCase() == Name[f]) {
+				TotalUpperCase = TotalUpperCase+1
+			}
+		}
+		if (TotalUpperCase > 2) {
+			console.log(Name + " Is Gonna get banned")
+		}
+	}
+	
+	AddBot(PinCode, Name, i)
 }
