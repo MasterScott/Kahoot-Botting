@@ -1,3 +1,4 @@
+// V0
 // You can only add 1 bot per socket
 
 const corsProxy = require("cors-anywhere");
@@ -18,7 +19,7 @@ const Adapters = KahootAPI.Adapters
 
 //import KahootAPI from '@omegaboot/kahoot-api'
 for (i=0; i < UserCount; i++) {
-    var session = new Session(5720569, "http://localhost:3000/")
+    var session = new Session(7685633, "http://localhost:3000/")
     session.openSocket() //Connect
     .then(socket => {
             const player = new Adapters.Player(socket); //Create player class

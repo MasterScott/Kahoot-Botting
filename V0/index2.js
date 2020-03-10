@@ -1,12 +1,10 @@
 const corsProxy = require("cors-anywhere");
-const KahootAPI = require('kahoot-api')
-const Session = KahootAPI.Session
-const Adapters = KahootAPI.Adapters
+const { Session, Adapters, Events } = require('kahoot-api')
 
-// Client Variables
-var UserName = "Bots"
-var UserCount = 5000;
-var PinCode = 6098421;
+var Waited = false;
+var UserName = "V1.81-Beta";
+var UserCount = 1500;
+var PinCode = 9887247;
 
 // Create the Cors Server
 const corsServer = corsProxy.createServer({
@@ -15,12 +13,6 @@ const corsServer = corsProxy.createServer({
 corsServer.listen(3000, "localhost", function() {
 	console.log(`Cors Anywhere service started.`);
 });
-var Waited = false;
-var UserName = "V1.81-Beta";
-var UserCount = 1500;
-var PinCode = 9887247;
-
-const { Session, Adapters, Events } = require('kahoot-api')
   
 function AddBot(Pin, Username, CurrentI) {
     setTimeout(async function() {
