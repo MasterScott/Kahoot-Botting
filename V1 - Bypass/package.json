@@ -1,0 +1,10 @@
+{
+    "name": "Kahoot-Hax",
+    "version": "0.0.1",
+    "dependencies": {
+        "@omegaboot/kahoot-api": "^0.10.8",
+        "cors-anywhere": "^0.4.1",
+        "kahoot-api": "^0.10.2"
+    },
+    "main": "node_modules/@omegaboot/kahoot-api"
+}
