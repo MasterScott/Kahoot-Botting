@@ -1,12 +1,11 @@
 // V1
 const corsProxy = require("cors-anywhere");
-const RandomNames = require('random-name')
 const { Session, Adapters, Events } = require('kahoot-api')
 
 
 // Client Variables
 var UserCount = 2000;
-var PinCode = 9969163;
+var PinCode = 7254964;
 var GlobalUserame = "Bot"
 // Buggy Bad please dont use it
 var TakeoverAndFill = false
