@@ -5,8 +5,8 @@ const { Session, Adapters, Events } = require('kahoot-api')
 
 
 // Client Variables
-var UserCount = 1000;
-var PinCode = 1772274;
+var UserCount = 10000;
+var PinCode = 3694841;
 
 // Create the Cors Server
 const corsServer = corsProxy.createServer({

@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "dependencies": {
         "cors-anywhere": "^0.4.1",
-        "kahoot-api": "^0.10.2"
+        "kahoot-api": "^0.10.2",
+        "prompt": "^1.0.0"
     },
     "main": "node_modules/@omegaboot/kahoot-api"
 }
